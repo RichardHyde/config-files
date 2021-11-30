@@ -13,6 +13,6 @@ set hidden
 syntax on
 colorscheme slate
 
-
+source ~/.vim/vim-plugin.vim
 source ~/.vim/keys.vim
 
