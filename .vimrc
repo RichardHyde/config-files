@@ -14,5 +14,6 @@ syntax on
 colorscheme slate
 
 source ~/.vim/vim-plugin.vim
+source ~/.vim/vim-taskpaper.vim
 source ~/.vim/keys.vim
 
