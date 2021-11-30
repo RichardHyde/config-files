@@ -1,4 +1,6 @@
 #!/bin/bash
 
-ln ./fish ~/.config/fish
+CURR_DIR=$(pwd)
+
+ln -s ${CURR_DIR}fish ${HOME}/.config/fish
 
