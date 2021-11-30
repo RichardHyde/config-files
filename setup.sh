@@ -28,6 +28,8 @@ fi
 
 mklink fish .config/fish
 
+mklink .sqliterc
+
 mklink .vimrc
 mklink .vim
 
