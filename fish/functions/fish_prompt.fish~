@@ -1,0 +1,68 @@
+function fish_prompt
+	set -l newLine 0
+	set -l foo i j k m
+	set -l uid (id -u $USER)
+	
+	if [ -z "$lastChecked" ]
+		set -g lastChecked 0
+	end
+
+	if [ (math (date +%s)-$lastChecked) -ge 900 ]
+		set -g ETHBTCRate (curl -s https://cex.io/api/last_price/ETH/BTC | awk 'BEGIN { FS = "\":\"|\",\"" } { print $2 }')
+
+		set_color -o magenta
+		set -l headlines (mrh)
+		set -l hl
+		for hl in $headlines
+			if [ "$hl" = "$lastHeadline" ]
+				break
+			end
+			echo "$hl"
+		end
+
+		set -g lastChecked (date +%s)
+		set -g lastHeadline $headlines[1]
+	end
+	
+	if [ -n "$ETHBTCRate" ]
+		set_color yellow
+		echo -n "ETH->BTC:$ETHBTCRate "
+		set newLine 1
+	end
+
+	set_color cyan
+
+	if [ -d .git ]
+		set -l git_branch (git rev-parse --abbrev-ref HEAD ^ /dev/null)
+		echo -n "[$git_branch"
+
+		set -l git_dirty_count (git status --porcelain | wc -l | sed "s/ //g")
+		if [ $git_dirty_count -gt 0 ]
+			echo -n ":$git_dirty_count"
+		end
+
+		echo -n "] "
+		set newLine 1
+	end
+
+	for c in (seq (count $foo))
+		if [ -n "$$foo[$c]" ]
+			echo -n "$foo[$c]:$$foo[$c] "
+			set newLine 1
+		end
+	end
+
+	if [ $newLine -eq 1 ]
+		echo 
+	end
+
+	set_color normal
+	echo -n (prompt_pwd)
+		
+	if [ $uid -eq 0 ]
+		echo " ~ "
+	else
+		echo " > "
+	end
+end
+

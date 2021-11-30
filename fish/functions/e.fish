@@ -1,0 +1,4 @@
+function e
+	set cmd "echo \$$argv[1]"
+	eval $cmd
+end
