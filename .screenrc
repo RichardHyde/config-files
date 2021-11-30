@@ -1,0 +1,9 @@
+startup_message off
+vbell off
+defscrollback 1000
+
+hardstatus alwayslastline
+hardstatus string "%{= KW} %H [%`] %{= Kw}|%{-} %-Lw%{= bW}%n%f %t%{-}%+Lw %=%C%a %Y-%M-%d"
+
+screen -t bash /bin/bash
+

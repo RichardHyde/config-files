@@ -33,3 +33,4 @@ mklink .sqliterc
 mklink .vimrc
 mklink .vim
 
+mklink .screenrc
