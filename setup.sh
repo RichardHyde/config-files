@@ -34,3 +34,7 @@ mklink .vimrc
 mklink .vim
 
 mklink .screenrc
+
+mklink zsh .config/zsh
+mklink .zshenv .config/zsh/.zshenv
+
