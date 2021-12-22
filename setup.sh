@@ -26,7 +26,9 @@ if [ ! -d ${HOME}/.config ]; then
 	mkdir ~/.config
 fi
 
-mklink fish .config/fish
+if which fish > /dev/null; then
+    mklink fish .config/fish
+fi
 
 mklink .sqliterc
 
@@ -35,6 +37,12 @@ mklink .vim
 
 mklink .screenrc
 
-mklink zsh .config/zsh
-mklink .zshenv .config/zsh/.zshenv
+if which zsh > /dev/null; then
+    mklink zsh .config/zsh
+    mklink .zshenv .config/zsh/.zshenv
+
+    if [ ! -d ${HOME}/.config/oh-my-zsh ]; then
+        ZSH=${HOME}/.config/oh-my-zsh sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    fi
+fi
 
