@@ -39,7 +39,7 @@ mklink .screenrc
 
 if which zsh > /dev/null; then
     mklink zsh .config/zsh
-    mklink .zshenv .config/zsh/.zshenv
+    mklink zsh/.zshenv .zshenv
 
     if [ ! -d ${HOME}/.config/oh-my-zsh ]; then
         ZSH=${HOME}/.config/oh-my-zsh sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
