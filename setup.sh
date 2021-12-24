@@ -43,6 +43,8 @@ if which zsh > /dev/null; then
 
     if [ ! -d ${HOME}/.config/oh-my-zsh ]; then
         ZSH=${HOME}/.config/oh-my-zsh sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        rm -fr ${HOME}/.config/oh-my-zsh/custom
+        mklink oh-my-zsh/custom .config/oh-my-zsh/custom
     fi
 fi
 
