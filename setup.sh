@@ -16,7 +16,7 @@ mklink() {
 	fi
 
 	if [ -d ${CURR_DIR}/${SRC} ]; then
-		ln -s ${CURR_DIR}/${SRC} ${HOME}/${DEST}
+		ln -s ${CURR_DIR}/${SRC} ${HOME}/.config
 	else
 		ln ${CURR_DIR}/${SRC} ${HOME}/${DEST}
 	fi
@@ -28,12 +28,14 @@ fi
 
 if which fish > /dev/null; then
     mklink fish .config/fish
+else
+    echo Skipping fish, not installed
 fi
 
 mklink .sqliterc
 
 mklink .vimrc
-mklink .vim
+mklink vim
 
 mklink .screenrc
 
@@ -46,5 +48,7 @@ if which zsh > /dev/null; then
         rm -fr ${HOME}/.config/oh-my-zsh/custom
         mklink oh-my-zsh/custom .config/oh-my-zsh/custom
     fi
+else
+    echo Skipping zsh, not installed
 fi
 
