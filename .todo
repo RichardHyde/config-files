@@ -1,4 +1,8 @@
-Inbox:
+Vim:
 	- Install Markdown plugin
-	- Add key shortcut to load local todoo file
-	
+	- Add key shortcut to load local todo file
+
+Zsh:
+	- Install powerline fonts as part of setup
+	- Set theme
+
