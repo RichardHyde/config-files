@@ -2,6 +2,24 @@
 
 CURR_DIR=$(pwd)
 
+install_package() {
+    PKGNAME="$1"
+    case $(uname -s) in
+        Linux*) 
+            PKGMGR="sudo apt install"
+            ;;
+        Darwin*) 
+            if [ ! -z "$2" ]; then
+                PKGNAME="$2"
+            fi
+            PKGMGR="brew install"
+            ;;
+        *) return;;
+    esac
+
+    $PKGMGR "$PKGNAME"
+}
+
 mklink() {
 	SRC=$1
 	
@@ -44,6 +62,8 @@ if which zsh > /dev/null; then
     mklink zsh/.zshenv .zshenv
 
     if [ ! -d ${HOME}/.config/oh-my-zsh ]; then
+        install_package fonts-powerline
+
         ZSH=${HOME}/.config/oh-my-zsh sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
         rm -fr ${HOME}/.config/oh-my-zsh/custom
         mklink oh-my-zsh/custom .config/oh-my-zsh/custom
