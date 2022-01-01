@@ -73,7 +73,7 @@ ZSH_THEME="intheloop"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git ssh-agent)
 
-if [[ $(uname -s) -eq "Darwin" ]]; then
+if [[ $(uname -s) == "Darwin" ]]; then
     plugins=($PLUGINS macos textastic)
 fi
 
