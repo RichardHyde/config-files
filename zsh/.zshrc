@@ -73,7 +73,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git ssh-agent)
 
 if [[ $(uname -s) -eq "Darwin" ]]; then
-    plugins=($PLUGINS macos)
+    plugins=($PLUGINS macos textastic)
 fi
 
 zstyle :omz:plugins:ssh-agent identities id_rsa
