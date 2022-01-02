@@ -108,3 +108,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Load any local aliases
+if [[ -f ${HOME}/.zshaliases ]]; then
+    source ${HOME}/.zshaliases
+fi
+
