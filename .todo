@@ -1,6 +1,6 @@
 Vim:
 	- Install Markdown plugin
-	- Add key shortcut to load local todo file
+	- Add key shortcut to load local todo file @done(2022-01-01)
 
 Zsh:
 	- Install powerline fonts as part of setup
