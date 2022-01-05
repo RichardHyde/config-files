@@ -53,7 +53,7 @@ fi
 mklink .sqliterc
 
 mklink .vimrc
-mklink vim .vim
+mklink vim 
 
 mklink .screenrc
 
