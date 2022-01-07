@@ -21,27 +21,31 @@ install_package() {
 }
 
 mklink() {
-	SRC=$1
-	
-	if [ -z "$2" ]; then
-		DEST=$1
-	else
-		DEST=$2
-	fi
+    SRC=$1
+    
+    if [ -z "$2" ]; then
+        DEST=$1
+    else
+        DEST=$2
+    fi
 
-	if [ -h ${HOME}/${DEST} -o ${HOME}/${DEST} -ef ${CURR_DIR}/${SRC} ]; then
-		return 0
-	fi
+    if [ -h ${HOME}/${DEST} -o ${HOME}/${DEST} -ef ${CURR_DIR}/${SRC} ]; then
+        return 0
+    fi
 
-	if [ -d ${CURR_DIR}/${SRC} ]; then
-		ln -s ${CURR_DIR}/${SRC} ${HOME}/.config
-	else
-		ln ${CURR_DIR}/${SRC} ${HOME}/${DEST}
-	fi
+    if [ -d ${CURR_DIR}/${SRC} ]; then
+        if [ ! -e ${HOME}/.config/${SRC} ]; then
+            ln -s ${CURR_DIR}/${SRC} ${HOME}/.config
+        fi
+    else
+        if [ ! -e ${HOME}/${DEST} ]; then
+            ln ${CURR_DIR}/${SRC} ${HOME}/${DEST}
+        fi
+    fi
 }
 
 if [ ! -d ${HOME}/.config ]; then
-	mkdir ~/.config
+    mkdir ~/.config
 fi
 
 if which fish > /dev/null; then
