@@ -1,0 +1,87 @@
+---
+- name: Dot files setup
+  hosts: all
+
+  tasks:
+    
+  - name: Copying Sqlite file
+    ansible.builtin.copy:
+      src: .sqliterc
+      dest: ~/
+      backup: true
+    tags: sqlite
+        
+  - name: Copying Screens file
+    ansible.builtin.copy:
+      src: .screenrc
+      dest: ~/
+      backup: true
+    tags: screens
+        
+  - name: Copying Vim files
+    ansible.builtin.copy:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      backup: true
+    with_items:
+      - src: vim/vimrc
+        dest: ~/.vimrc
+      - src: vim/keys.vim
+        dest: ~/.config/vim/
+      - src: vim/vim-plugin.vim
+        dest: ~/.config/vim/
+      - src: vim/vim-taskpaper.vim
+        dest: ~/.config/vim/
+      - src: vim/syntax
+        dest: ~/.config/vim/
+    tags: vim
+        
+  - name: Copying ZSH files
+    ansible.builtin.copy:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      backup: true
+    with_items:
+      - src: zsh/.zshenv
+        dest: ~/
+      - src: zsh/.zshrc
+        dest: ~/.config/zsh/
+    when: ansible_user_shell | regex_search(".*/zsh$")
+    tags: zsh
+  
+  - name: Register Oh My Zsh directory
+    stat:
+      path: ~/.config/oh-my-zsh
+    register: oh_my_zsh
+  
+  - name: Cloning Oh My Zsh
+    git:
+      repo: https://github.com/robbyrussell/oh-my-zsh
+      dest: ~/.config/oh-my-zsh
+    when: 
+      - ansible_user_shell | regex_search(".*/zsh$")
+      - not oh_my_zsh.stat.exists
+    tags: zsh
+
+  - name: Copying Custom Oh My Zsh files
+    ansible.builtin.copy:
+      src: oh-my-zsh/custom/
+      dest: ~/.config/oh-my-zsh/custom/
+      backup: true
+    when: ansible_user_shell | regex_search(".*/zsh$")
+    tags: zsh
+    
+  # - name: update Oh My Zsh
+  #   command: omz update
+  #   when: 
+  #     - ansible_user_shell | regex_search(".*/zsh$")
+  #     - oh_my_zsh.stat.exists and oh_my_zsh.stat.isdir
+  #   tags: zsh
+      
+  - name: Copying Fish files
+    ansible.builtin.copy:
+      src: fish/
+      dest: ~/.config
+      backup: true    
+    when: ansible_user_shell | regex_search(".*/fish$")
+    tags: fish
