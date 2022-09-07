@@ -11,7 +11,7 @@ set nocompatible
 set backspace=indent,eol,start
 set showmode
 set hidden
-syntax on
+set syntax=on
 colorscheme slate
 
 source ~/.config/vim/vim-plugin.vim
