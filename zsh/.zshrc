@@ -114,6 +114,10 @@ if [[ -f ${HOME}/.zshaliases ]]; then
     source ${HOME}/.zshaliases
 fi
 
+# Load any machine specific settings
+if [[ -f ${HOME}/.zshrc ]]; then
+  source ${HOME}/.zshrc
+fi 
 
 if [[ $(uname -s) == "Darwin" ]]; then
   source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
