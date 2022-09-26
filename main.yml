@@ -42,11 +42,11 @@
       dest: "{{ item.dest }}"
       backup: true
     with_items:
-      - src: zsh/.zshenv
-        dest: ~/
-      - src: zsh/.zshrc
+      - src: zsh/zshenv
+        dest: ~/.zshenv
+      - src: zsh/zshrc
         dest: ~/.config/zsh/
-      - src: zsh/.zshaliases
+      - src: zsh/zshaliases
         dest: ~/.config/zsh/
     when: ansible_user_shell | regex_search(".*/zsh$")
     tags: zsh
