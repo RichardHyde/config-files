@@ -13,7 +13,6 @@
   hosts: macs
   tasks:
   - name: Update and upgrade
-    become: yes
     community.general.homebrew:
       update_homebrew: yes
       upgrade_all: yes
