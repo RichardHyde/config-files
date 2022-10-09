@@ -45,7 +45,7 @@
       - src: zsh/zshenv
         dest: ~/.zshenv
       - src: zsh/zshrc
-        dest: ~/.config/zsh/.zshrc
+        dest: ~/.zshrc
       - src: zsh/zshaliases
         dest: ~/.config/zsh/
     when: ansible_user_shell | regex_search(".*/zsh$")
