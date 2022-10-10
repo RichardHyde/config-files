@@ -17,7 +17,17 @@
       dest: ~/
       backup: true
     tags: screens
+    
+  - name: Create ~/.config directory
+    file:
+      path: ~/.config
+      state: directory
         
+  - name: Create ~/.config/vim directory
+    file:
+      path: ~/.config/vim
+      state: directory
+    
   - name: Copying Vim files
     ansible.builtin.copy:
       src: "{{ item.src }}"
@@ -35,7 +45,14 @@
       - src: vim/syntax
         dest: ~/.config/vim/
     tags: vim
-        
+  
+  - name: Create ~/.config/zsh directory
+    file:
+      path: ~/.config/zsh
+      state: directory
+    when: ansible_user_shell | regex_search(".*/zsh$")
+    tags: zsh
+      
   - name: Copying ZSH files
     ansible.builtin.copy:
       src: "{{ item.src }}"
