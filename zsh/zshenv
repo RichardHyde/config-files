@@ -1,3 +1,6 @@
+# Exit if we're mot in Interactive mode
+[[ $- == *i* ]] || return
+
 ZDOTDIR=$HOME/.config/zsh
 
 # oh my zsh settings
