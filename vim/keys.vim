@@ -11,6 +11,11 @@ nnoremap <Leader>vr :source $MYVIMRC<CR>
 nnoremap <Leader>t, :e ./.todo<CR>
 nnoremap <Leader>t~ :e ~/.todo<CR>
 
+" Yank and paste to the system buffer
+nnoremap <leader>yw <esc>"+yw
+nnoremap <leader>y$ <esc>"+y$
+nnoremap <leader>p <esc>"+p
+
 " Ctrl-j + Ctrl+k to move lines up and down
 nnoremap <c-j> :m .+1<CR>==
 nnoremap <c-k> :m .-2<CR>==
