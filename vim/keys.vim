@@ -12,9 +12,12 @@ nnoremap <Leader>t, :e ./.todo<CR>
 nnoremap <Leader>t~ :e ~/.todo<CR>
 
 " Yank and paste to the system buffer
-nnoremap <leader>yw <esc>"+yw
-nnoremap <leader>y$ <esc>"+y$
-nnoremap <leader>p <esc>"+p
+nnoremap <leader>p <Esc>"+p
+nnoremap <leader>P <Esc>"+P
+vnoremap <leader>y "+y
+nnoremap <leader>yl <Esc>@='"+yl'
+nnoremap <leader>yw <Esc>@='"+yw'
+nnoremap <leader>y$ <Esc>"+y$
 
 " Ctrl-j + Ctrl+k to move lines up and down
 nnoremap <c-j> :m .+1<CR>==
