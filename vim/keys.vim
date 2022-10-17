@@ -15,8 +15,8 @@ nnoremap <Leader>t~ :e ~/.todo<CR>
 nnoremap <leader>p <Esc>"+p
 nnoremap <leader>P <Esc>"+P
 vnoremap <leader>y "+y
-nnoremap <leader>yl <Esc>@='"+yl'
-nnoremap <leader>yw <Esc>@='"+yw'
+nnoremap <leader>yl <Esc>@='"+yl'<CR>
+nnoremap <leader>yw <Esc>@='"+yw'<CR>
 nnoremap <leader>y$ <Esc>"+y$
 
 " Ctrl-j + Ctrl+k to move lines up and down
