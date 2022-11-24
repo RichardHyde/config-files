@@ -14,9 +14,8 @@ set hidden
 set syntax=on
 colorscheme slate
 
-source ~/.config/vim/vim-commentary.vim
-source ~/.config/vim/vim-fugitive.vim
 source ~/.config/vim/vim-plugin.vim
+source ~/.config/vim/vim-commentary.vim
 source ~/.config/vim/vim-taskpaper.vim
 source ~/.config/vim/keys.vim
 

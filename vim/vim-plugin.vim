@@ -4,3 +4,9 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" load plugins
+call plug#begin()
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'cweagans/vim-taskpaper'
+call plug#end()
