@@ -1,1 +1,2 @@
 alias m="more"
+alias e="$EDITOR"
