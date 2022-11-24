@@ -1,4 +1,4 @@
-# Exit if we're mot in Interactive mode
+# Exit if we're not in Interactive mode
 [[ $- == *i* ]] || return
 
 ZDOTDIR=$HOME/.config/zsh
