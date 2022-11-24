@@ -36,14 +36,15 @@
     with_items:
       - src: vim/vimrc
         dest: ~/.vimrc
-      - src: vim/keys.vim
-        dest: ~/.config/vim/
-      - src: vim/vim-plugin.vim
-        dest: ~/.config/vim/
-      - src: vim/vim-taskpaper.vim
-        dest: ~/.config/vim/
       - src: vim/syntax
         dest: ~/.config/vim/
+    tags: vim
+    
+  - ansible.builtin.copy:
+      src: "{{ item }}"
+      dest: ~/.config/vim
+    with_fileglob:
+        - "vim/*.vim"
     tags: vim
   
   - name: Create ~/.config/zsh directory
