@@ -31,3 +31,5 @@ vnoremap <c-k> :m '<-2<CR>gv=gv
 nnoremap <leader>\| :vsplit<CR>
 nnoremap <leader>- :split<CR>
 
+" Nerdtree key mapping
+nnoremap <leader>e :NERDTreeToggle<CR>
