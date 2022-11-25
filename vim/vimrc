@@ -14,8 +14,18 @@ set hidden
 set syntax=on
 colorscheme slate
 
+" Line wrapping
+set nowrap
+
+"" turn on line wrapping for .m and .txt files
+au! BufRead,BufNewFile *.md setlocal wrap
+au! BufRead,BufNewFile *.txt setlocal wrap
+
+" Load other plugins and plugin settings
 source ~/.config/vim/vim-plugin.vim
 source ~/.config/vim/vim-commentary.vim
 source ~/.config/vim/vim-taskpaper.vim
+
+" Load key mappings
 source ~/.config/vim/keys.vim
 
