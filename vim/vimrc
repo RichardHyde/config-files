@@ -17,6 +17,10 @@ colorscheme slate
 " Line wrapping
 set nowrap
 
+" Split options
+set splitbelow
+set splitright
+
 "" turn on line wrapping for .m and .txt files
 au! BufRead,BufNewFile *.md setlocal wrap
 au! BufRead,BufNewFile *.txt setlocal wrap
