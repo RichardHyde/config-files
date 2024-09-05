@@ -8,7 +8,11 @@ if [ -n "$SSH_CLIENT" ]; then
 fi
 
 if [[ "$(uname)" == "Darwin" ]]; then
-  local prompt_char=""
+  if [[ "$ITERM_PROFILE" == "NerdFont" ]]; then
+    local prompt_char=""
+  else
+    local prompt_char=""
+  fi
 elif [[ "$(uname)" == "Linux" ]]; then
   local prompt_char="🐧"
 else
